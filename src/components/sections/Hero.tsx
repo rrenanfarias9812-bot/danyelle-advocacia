@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Briefcase, Phone } from "lucide-react";
+import { ArrowRight, Shield, Briefcase, Phone, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +29,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-navy-section">
       {/* Background decorative elements */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        {/* Large radial gradient */}
+        {/* Large radial gradient — teal accent subtle */}
         <div
           className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.04]"
           style={{
@@ -36,12 +37,11 @@ export function Hero() {
               "radial-gradient(circle, var(--color-gold-400) 0%, transparent 70%)",
           }}
         />
-        {/* Bottom left accent */}
         <div
-          className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full opacity-[0.03]"
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]"
           style={{
             background:
-              "radial-gradient(circle, #ffffff 0%, transparent 70%)",
+              "radial-gradient(circle, var(--color-teal-500) 0%, transparent 70%)",
           }}
         />
         {/* Grid overlay */}
@@ -56,7 +56,7 @@ export function Hero() {
       </div>
 
       <div className="container-site relative z-10 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Content */}
           <div className="flex flex-col gap-8">
             {/* Label badge */}
@@ -66,11 +66,7 @@ export function Hero() {
               animate="visible"
               custom={0}
             >
-              <Badge
-                variant="gold-outline"
-                size="lg"
-                className="w-fit"
-              >
+              <Badge variant="gold-outline" size="lg" className="w-fit">
                 <Shield className="w-3.5 h-3.5" />
                 Advocacia Especializada
               </Badge>
@@ -90,13 +86,9 @@ export function Hero() {
               </h1>
               <p className="text-body-xl text-slate-300 leading-relaxed max-w-lg">
                 Especializada em{" "}
-                <span className="text-gold-300 font-semibold">
-                  Direito Trabalhista
-                </span>{" "}
+                <span className="text-gold-300 font-semibold">Direito Trabalhista</span>{" "}
                 e{" "}
-                <span className="text-gold-300 font-semibold">
-                  Direito Previdenciário
-                </span>
+                <span className="text-gold-300 font-semibold">Direito Previdenciário</span>
                 , com estratégia, ética e resultados comprovados.
               </p>
             </motion.div>
@@ -123,12 +115,7 @@ export function Hero() {
                 </Link>
               </Button>
 
-              <Button
-                asChild
-                variant="outline-gold"
-                size="lg"
-                rounded="full"
-              >
+              <Button asChild variant="outline-gold" size="lg" rounded="full">
                 <Link href="/areas">
                   <Briefcase className="w-4 h-4" />
                   Áreas de Atuação
@@ -157,90 +144,92 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Visual card */}
+          {/* Right — Danyelle photo */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-            className="hidden lg:flex justify-center items-center"
+            transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+            className="hidden lg:flex justify-center items-end"
           >
-            <div className="relative w-full max-w-md">
-              {/* Main card */}
-              <div className="glass-dark rounded-3xl p-8 flex flex-col gap-6 border border-white/10 shadow-2xl">
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                    style={{ background: "var(--color-gold-400)" }}
-                  >
-                    <Shield className="w-6 h-6 text-navy-900" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-body-lg">
-                      Dra. Danyelle Freitas
-                    </p>
-                    <p className="text-slate-400 text-body-sm">
-                      Advogada • OAB/SP
-                    </p>
-                  </div>
-                </div>
+            <div className="relative w-full max-w-[420px]">
+              {/* Gold corner accent */}
+              <div
+                className="absolute -top-3 -left-3 w-24 h-24 rounded-tl-2xl border-t-2 border-l-2 z-10 pointer-events-none"
+                style={{ borderColor: "var(--color-gold-400)" }}
+                aria-hidden
+              />
+              <div
+                className="absolute -bottom-3 -right-3 w-24 h-24 rounded-br-2xl border-b-2 border-r-2 z-10 pointer-events-none"
+                style={{ borderColor: "var(--color-gold-400)" }}
+                aria-hidden
+              />
 
+              {/* Photo frame */}
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  boxShadow: "0 24px 60px rgb(10 25 47 / 0.6), 0 0 0 1px rgb(201 169 97 / 0.2)",
+                }}
+              >
+                <Image
+                  src="/danyelle-hero.jpg"
+                  alt="Dra. Danyelle Freitas — Advogada Especialista em Direito Trabalhista e Previdenciário"
+                  width={420}
+                  height={560}
+                  className="w-full h-auto object-cover object-top"
+                  priority
+                />
+                {/* Gradient overlay bottom */}
                 <div
-                  className="h-px w-full"
+                  className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
                   style={{
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(212,168,50,0.3), transparent)",
+                    background: "linear-gradient(to top, rgba(10,25,47,0.85) 0%, transparent 100%)",
                   }}
                 />
-
-                {/* Practice areas */}
-                <div className="flex flex-col gap-3">
-                  {[
-                    { icon: Briefcase, label: "Direito Trabalhista", desc: "Rescisões, assédio, horas extras" },
-                    { icon: Shield, label: "Direito Previdenciário", desc: "INSS, aposentadoria, benefícios" },
-                  ].map(({ icon: Icon, label, desc }) => (
-                    <div
-                      key={label}
-                      className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/8 hover:bg-white/8 transition-colors duration-250"
-                    >
-                      <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ background: "rgba(212,168,50,0.15)" }}
-                      >
-                        <Icon className="w-4 h-4 text-gold-400" />
-                      </div>
-                      <div>
-                        <p className="text-white text-body-sm font-semibold">{label}</p>
-                        <p className="text-slate-400 text-body-xs">{desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                {/* Name caption */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                  <div>
+                    <p className="font-serif font-bold text-white text-body-lg leading-tight">
+                      Dra. Danyelle Freitas
+                    </p>
+                    <p className="text-gold-300 text-body-sm">Advogada • OAB</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[0,1,2,3,4].map((i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-gold-400 fill-gold-400" />
+                    ))}
+                  </div>
                 </div>
-
-                {/* CTA in card */}
-                <Button
-                  asChild
-                  variant="gold"
-                  size="md"
-                  rounded="full"
-                  className="w-full shine-hover"
-                >
-                  <Link href="/contato">
-                    Fale comigo agora
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
               </div>
 
-              {/* Floating badge */}
+              {/* Floating badge — atendimento */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 glass-dark rounded-2xl px-4 py-2 flex items-center gap-2 border border-white/10"
+                className="absolute -top-4 -right-4 glass-dark rounded-2xl px-4 py-2.5 flex items-center gap-2 border border-white/10 z-20"
               >
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-white text-body-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
+                <span className="text-white text-body-xs font-semibold whitespace-nowrap">
                   Atendimento disponível
                 </span>
+              </motion.div>
+
+              {/* Floating badge — especialista */}
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-4 -left-4 glass-dark rounded-2xl px-4 py-2.5 flex items-center gap-2.5 border border-white/10 z-20"
+              >
+                <div
+                  className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(201,169,97,0.15)" }}
+                >
+                  <Shield className="w-4 h-4 text-gold-400" />
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-white text-body-xs font-semibold">Especialista INSS</span>
+                  <span className="text-slate-400 text-label-sm">Previdenciário</span>
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -15,17 +15,29 @@
   --color-navy-900: #0A192F;
   --color-navy-950: #060f1c;
 
-  /* Brand Colors — Gold */
-  --color-gold-50:  #fdf9ee;
-  --color-gold-100: #f9efcc;
-  --color-gold-200: #f2da8c;
-  --color-gold-300: #ebc34d;
-  --color-gold-400: #d4a832;
-  --color-gold-500: #b8891a;
-  --color-gold-600: #9a6d0f;
-  --color-gold-700: #7a530b;
-  --color-gold-800: #5c3e0c;
-  --color-gold-900: #3d2a08;
+  /* Brand Colors — Gold (paleta oficial Danyelle Freitas) */
+  --color-gold-50:  #faf6ec;
+  --color-gold-100: #f2e9cc;
+  --color-gold-200: #e4d09e;
+  --color-gold-300: #d9be82;
+  --color-gold-400: #C9A961;   /* ← cor primária da marca */
+  --color-gold-500: #b08843;
+  --color-gold-600: #A88C5F;   /* ← hover buttons */
+  --color-gold-700: #7d6035;
+  --color-gold-800: #5a4425;
+  --color-gold-900: #3d2d15;
+
+  /* Brand Colors — Teal (destaque, cor Danyelle) */
+  --color-teal-50:  #e6f4f4;
+  --color-teal-100: #b3dede;
+  --color-teal-200: #80c8c8;
+  --color-teal-300: #4db3b3;
+  --color-teal-400: #2ba8a8;
+  --color-teal-500: #1B8A8A;   /* ← destaque principal */
+  --color-teal-600: #157070;
+  --color-teal-700: #0f5555;
+  --color-teal-800: #093b3b;
+  --color-teal-900: #042020;
 
   /* Semantic */
   --color-background:      #f8fafc;
@@ -33,7 +45,7 @@
   --color-muted:           #f1f5f9;
   --color-muted-foreground:#64748b;
   --color-border:          #e2e8f0;
-  --color-ring:            #d4a832;
+  --color-ring:            #C9A961;
   --color-success:         #16a34a;
   --color-warning:         #d97706;
   --color-error:           #dc2626;
@@ -64,7 +76,7 @@
   /* Shadows */
   --shadow-card:      0 4px 24px -4px rgb(10 25 47 / 0.08), 0 1px 4px -1px rgb(10 25 47 / 0.04);
   --shadow-card-hover:0 12px 40px -8px rgb(10 25 47 / 0.14), 0 4px 8px -2px rgb(10 25 47 / 0.06);
-  --shadow-gold:      0 0 20px rgb(212 168 50 / 0.3), 0 4px 16px rgb(212 168 50 / 0.2);
+  --shadow-gold:      0 0 20px rgb(201 169 97 / 0.35), 0 4px 16px rgb(201 169 97 / 0.2);
   --shadow-navy:      0 0 30px rgb(10 25 47 / 0.4);
 
   /* Spacing extras */
@@ -131,8 +143,8 @@
   to   { background-position: 200% 0; }
 }
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgb(212 168 50 / 0.4); }
-  50%       { box-shadow: 0 0 0 8px rgb(212 168 50 / 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgb(201 169 97 / 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgb(201 169 97 / 0); }
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
@@ -160,7 +172,7 @@
   }
 
   ::selection {
-    background: rgb(212 168 50 / 0.25);
+    background: rgb(201 169 97 / 0.25);
     color: var(--color-navy-900);
   }
 
@@ -258,7 +270,7 @@
     background-color: var(--color-navy-900);
     background-image: radial-gradient(
       ellipse 80% 60% at 50% -10%,
-      rgba(212, 168, 50, 0.06) 0%,
+      rgba(201, 169, 97, 0.06) 0%,
       transparent 70%
     );
   }

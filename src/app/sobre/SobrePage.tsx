@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Award,
   BookOpen,
@@ -126,45 +127,51 @@ export function SobrePage() {
               className="flex justify-center"
             >
               <div className="relative w-full max-w-sm">
-                {/* Main avatar card */}
-                <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-8 flex flex-col items-center gap-6 shadow-2xl">
-                  <div className="w-32 h-32 rounded-2xl bg-gold-400/20 border-2 border-gold-400/30 flex items-center justify-center">
-                    <span className="font-serif font-bold text-6xl text-gold-400">D</span>
-                  </div>
-                  <div className="text-center flex flex-col gap-1">
-                    <p className="font-serif font-bold text-display-sm text-white">
-                      Dra. Danyelle Freitas
-                    </p>
-                    <p className="text-body-sm text-gold-300 uppercase tracking-wider">
-                      Advogada Especialista
-                    </p>
-                    <p className="text-body-xs text-slate-400 mt-1">{siteConfig.oab}</p>
-                  </div>
+                {/* Gold corner accents */}
+                <div
+                  className="absolute -top-3 -left-3 w-20 h-20 rounded-tl-2xl border-t-2 border-l-2 z-10 pointer-events-none"
+                  style={{ borderColor: "var(--color-gold-400)" }}
+                  aria-hidden
+                />
+                <div
+                  className="absolute -bottom-3 -right-3 w-20 h-20 rounded-br-2xl border-b-2 border-r-2 z-10 pointer-events-none"
+                  style={{ borderColor: "var(--color-gold-400)" }}
+                  aria-hidden
+                />
 
-                  <div className="h-px w-full bg-white/10" />
-
-                  <div className="grid grid-cols-2 gap-4 w-full">
-                    {[
-                      { label: "Trabalhista", icon: Briefcase },
-                      { label: "Previdenciário", icon: Shield },
-                    ].map(({ label, icon: Icon }) => (
-                      <div
-                        key={label}
-                        className="flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/8"
-                      >
-                        <Icon className="w-5 h-5 text-gold-400" />
-                        <span className="text-body-xs text-slate-300 text-center">{label}</span>
-                      </div>
-                    ))}
+                {/* Photo */}
+                <div
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{
+                    boxShadow: "0 20px 50px rgb(10 25 47 / 0.2), 0 0 0 1px rgb(201 169 97 / 0.15)",
+                  }}
+                >
+                  <Image
+                    src="/danyelle-profile.jpg"
+                    alt="Dra. Danyelle Freitas — Advogada Especialista em Direito Trabalhista e Previdenciário"
+                    width={420}
+                    height={520}
+                    className="w-full h-auto object-cover object-top"
+                  />
+                  {/* Bottom gradient + name */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+                    style={{
+                      background: "linear-gradient(to top, rgba(10,25,47,0.9) 0%, transparent 100%)",
+                    }}
+                  />
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <p className="font-serif font-bold text-white text-body-lg">Dra. Danyelle Freitas</p>
+                    <p className="text-gold-300 text-body-sm">{siteConfig.oab}</p>
                   </div>
                 </div>
 
-                {/* Instagram link badge */}
+                {/* Instagram badge */}
                 <a
                   href={siteConfig.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2.5 bg-white rounded-full shadow-lg border border-border hover:border-navy-300 transition-all duration-200 whitespace-nowrap"
+                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2.5 bg-white rounded-full shadow-lg border border-border hover:border-gold-300 transition-all duration-200 whitespace-nowrap z-10"
                 >
                   <MessageCircle className="w-4 h-4 text-gold-500" />
                   <span className="text-body-sm font-semibold text-navy-900">

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ExternalLink, MessageCircle, Mail, MapPin, Scale, ArrowRight } from "lucide-react";
+import { ExternalLink, MessageCircle, Mail, MapPin, ArrowRight } from "lucide-react";
 import { siteConfig, navigation } from "@/data/site";
+import { LogoDf } from "@/components/shared/LogoDf";
 
 const footerAreas = [
   { label: "Direito Trabalhista", href: "/areas/trabalhista" },
@@ -36,9 +37,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="flex flex-col gap-6 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 group w-fit">
-              <div className="w-10 h-10 rounded-xl bg-navy-800 border border-white/10 flex items-center justify-center group-hover:border-gold-400/40 transition-colors duration-250">
-                <Scale className="w-5 h-5 text-gold-400" />
-              </div>
+              <LogoDf size={42} className="group-hover:opacity-90 transition-opacity duration-250" />
               <div className="flex flex-col leading-tight">
                 <span className="font-serif font-bold text-white text-body-lg">
                   Danyelle Freitas

@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useScrolled } from "@/hooks/useScrolled";
 import { siteConfig } from "@/data/site";
+import { LogoDf } from "@/components/shared/LogoDf";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -182,9 +183,7 @@ function MobileDrawer({
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-border">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-navy-900 flex items-center justify-center">
-                  <Scale className="w-4 h-4 text-gold-400" />
-                </div>
+                <LogoDf size={32} />
                 <span className="font-serif font-bold text-navy-900 text-body-lg">
                   Danyelle Freitas
                 </span>
@@ -334,19 +333,10 @@ export function Navbar() {
               className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-gold-400 rounded-lg"
               aria-label="Danyelle Freitas Advocacia — Ir para a página inicial"
             >
-              <div
-                className={cn(
-                  "flex items-center justify-center rounded-xl transition-all duration-350",
-                  scrolled ? "w-9 h-9 bg-navy-900" : "w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20"
-                )}
-              >
-                <Scale
-                  className={cn(
-                    "transition-all duration-350",
-                    scrolled ? "w-4 h-4 text-gold-400" : "w-5 h-5 text-gold-400"
-                  )}
-                />
-              </div>
+              <LogoDf
+                size={scrolled ? 36 : 42}
+                className="transition-all duration-350"
+              />
               <div className="flex flex-col leading-tight">
                 <span
                   className={cn(
